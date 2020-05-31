@@ -4,7 +4,7 @@ const Bodies=Matter.Bodies;
 const Constraint=Matter.Constraint;
 
 function preload(){
-  this.image=loadImage("poly.png.png")
+  this.image=loadImage("poly.png.png");
 }
 
 function setup() {
@@ -27,9 +27,9 @@ function setup() {
  box12=new Box(410,120,30,50);
 
 polygon=Bodies.circle(50,200,5,50);
-World.add(world.polygon);
+World.add(world,polygon);
   
- rope=new Rope(polygon.body,{x:150,y:400});
+ rope=new Rope(this.polygon,{x:150,y:400});
 }
 
 function draw() {
@@ -49,8 +49,9 @@ function draw() {
   box10.display();
   box11.display();
   box12.display();
+  push();
   imageMode(CENTER);
-  image(this.image,0,0,50,50)
- 
+  image(this.image,0,0,50,50);
+ pop();
   drawSprites();
 }
