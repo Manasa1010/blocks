@@ -3,9 +3,9 @@ const World=Matter.World;
 const Bodies=Matter.Bodies;
 const Constraint=Matter.Constraint;
 
-function preload(){
+/*function preload(){
   this.image=loadImage("poly.png.png");
-}
+}*/
 
 function setup() {
   createCanvas(800,400);
@@ -26,14 +26,13 @@ function setup() {
  box11=new Box(380,120,30,50);
  box12=new Box(410,120,30,50);
 
-polygon=Bodies.circle(50,200,5,50);
-World.add(world,polygon);
+polygon = new Polygon(100,300);
   
- rope=new Rope(this.polygon,{x:150,y:400});
+ rope=new Rope(polygon.body,{x:100,y:250});
 }
 
 function draw() {
-  background(0);  
+  background("green");  
   Engine.update(engine);
   ground1.display();
   ground2.display();
@@ -49,9 +48,15 @@ function draw() {
   box10.display();
   box11.display();
   box12.display();
-  push();
-  imageMode(CENTER);
-  image(this.image,0,0,50,50);
- pop();
+  
+  polygon.display();
+  rope.display();
   drawSprites();
+}
+function MouseDragged(){
+  Matter.Body.setPosition(polygon.body,{x:mouseX,y:mouseY});
+}
+
+function MouseReleased(){
+  rope.fly();
 }
