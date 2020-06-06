@@ -1,10 +1,10 @@
 class Polygon {
     constructor(x, y) {
       var options = {
-          isStatic:true,
-         // restitution:1,
-          //friction:0.1,
-         // density:1
+          //isStatic:true,
+          restitution:1,
+          friction:0.1,
+          density:1
       }
       this.body = Bodies.rectangle(x, y, 100,100, options);
       this.width=100;

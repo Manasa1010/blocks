@@ -53,10 +53,15 @@ function draw() {
   rope.display();
   drawSprites();
 }
-function MouseDragged(){
-  Matter.Body.setPosition(polygon.body,{x:mouseX,y:mouseY});
+function mouseDragged(){
+  Matter.Body.setPosition(polygon.body, {x: mouseX , y: mouseY});
 }
 
-function MouseReleased(){
+function mouseReleased(){
   rope.fly();
+}
+function keyPressed(){
+  if(keyCode===32){
+    rope.attach(polygon.body);
+  }
 }
